@@ -1,2 +1,2 @@
-# Kareia-Mobile
-For Kareia mobile development
+# Kareia
+For Kareia development
