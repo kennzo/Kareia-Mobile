@@ -51,7 +51,7 @@ class Property extends Model
      */
     public function state()
     {
-        return $this->belongsTo('App\Models\States\State');
+        return $this->belongsTo('App\Models\State');
     }
 
     /**
