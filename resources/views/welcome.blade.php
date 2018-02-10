@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    {{ env('APP_NAME', 'Kareia') }}
                 </div>
 
                 <div class="links">
