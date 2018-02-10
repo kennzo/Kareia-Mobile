@@ -64,8 +64,9 @@ class PropertyController extends Controller
         if (!$foundProperty) {
             return response()->json(['message' => 'Property not found'], 404);
         }
-        $property->update($request->input());
-        $property->save();
+
+        $foundProperty->fill($request->input());
+        $foundProperty->update();
         return response()->json(['property' => $foundProperty], 200);
     }
 
@@ -77,6 +78,11 @@ class PropertyController extends Controller
      */
     public function destroy(Property $property)
     {
-        //
+        $foundProperty = Property::find($property->id);
+        if (!$foundProperty) {
+            return response()->json(['message' => 'Property not found'], 404);
+        }
+        $foundProperty->delete();
+        return response()->json(['message' => "Property [$property->id] deleted."], 200);
     }
 }
