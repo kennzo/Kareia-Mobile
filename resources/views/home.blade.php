@@ -23,4 +23,6 @@
 
 <example-component></example-component>
 
+<new-property></new-property>
+
 @endsection

@@ -5,9 +5,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Example Component</div>
 
-                    <div class="panel-body">
-                        {{ message }}
-                    </div>
+                    <div class="panel-body">{{ message }}</div>
                 </div>
             </div>
         </div>
@@ -15,9 +13,14 @@
 </template>
 
 <script>
-    // export default {
-        // mounted() {
-        //     console.log('Component mounted.')
-        // }
-    // }
+    export default {
+        data() {
+            return {
+                message: "Hello worlds!"
+            }
+        },
+        mounted() {
+            console.log('Component mounted.')
+        }
+    }
 </script>
