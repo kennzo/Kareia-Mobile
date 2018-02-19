@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Example Component</div>
+                    <div class="panel-heading">Enter Property Details</div>
 
                     <div class="panel-body">
                         <form @submit.prevent="onSubmitted">
