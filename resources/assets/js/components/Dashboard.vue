@@ -7,6 +7,7 @@
 
 <script>
     import Vue from "vue";
+    import axios from "axios";
 
     import ExampleComponent from './ExampleComponent';
     import NewProperty from './Properties/New-Property';
