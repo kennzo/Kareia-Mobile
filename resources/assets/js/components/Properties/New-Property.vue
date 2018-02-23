@@ -8,113 +8,114 @@
                     <div class="panel-body">
                         <form @submit.prevent="onSubmitted">
                             <fieldset>
-                                <div class="form-group">
-                                    <label :class="label_classes" for="street_address">Street Address</label>
-                                    <div class="col-lg-8">
+                                <div :class="styleClasses.div_group">
+                                    <label :class="styleClasses._1_label" for="street_address">Street Address</label>
+                                    <div :class="styleClasses._2_div">
                                         <input
                                                 type="text"
                                                 id="street_address"
-                                                class="form-control"
+                                                :class="styleClasses._input"
                                                 v-model="fields.street_address">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label :class="label_classes" for="city">City</label>
-                                    <div class="col-lg-8">
+                                <div :class="styleClasses.div_group">
+                                    <label :class="styleClasses._1_label" for="city">City</label>
+                                    <div :class="styleClasses._2_div">
                                         <input
                                                 type="text"
                                                 id="city"
-                                                class="form-control"
+                                                :class="styleClasses._input"
                                                 v-model="fields.city">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label :class="label_classes" for="state">State</label>
-                                    <div class="col-lg-8">
-                                        <input
-                                                type="text"
-                                                id="state"
-                                                class="form-control"
-                                                v-model="fields.state_id">
+                                <div :class="styleClasses.div_group">
+                                    <label :class="styleClasses._1_label" for="state">State</label>
+                                    <div :class="styleClasses._2_div">
+                                        <form-states></form-states>
+                                        <!--<input-->
+                                                <!--type="text"-->
+                                                <!--id="state"-->
+                                                <!--:class="styleClasses._input"-->
+                                                <!--v-model="fields.state_id">-->
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label :class="label_classes" for="zip">Zip Code</label>
-                                    <div class="col-lg-8">
+                                <div :class="styleClasses.div_group">
+                                    <label :class="styleClasses._1_label" for="zip">Zip Code</label>
+                                    <div :class="styleClasses._2_div">
                                         <input
                                                 type="text"
                                                 id="zip"
-                                                class="form-control"
+                                                :class="styleClasses._input"
                                                 v-model="fields.zip">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label :class="label_classes" for="bedrooms">Bedrooms</label>
-                                    <div class="col-lg-8">
+                                <div :class="styleClasses.div_group">
+                                    <label :class="styleClasses._1_label" for="bedrooms">Bedrooms</label>
+                                    <div :class="styleClasses._2_div">
                                         <input
                                                 type="text"
                                                 id="bedrooms"
-                                                class="form-control"
+                                                :class="styleClasses._input"
                                                 v-model="fields.bedrooms">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label :class="label_classes" for="bathrooms">Bathrooms</label>
-                                    <div class="col-lg-8">
+                                <div :class="styleClasses.div_group">
+                                    <label :class="styleClasses._1_label" for="bathrooms">Bathrooms</label>
+                                    <div :class="styleClasses._2_div">
                                         <input
                                                 type="text"
                                                 id="bathrooms"
-                                                class="form-control"
+                                                :class="styleClasses._input"
                                                 v-model="fields.bathrooms">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label :class="label_classes" for="garages">Garages</label>
-                                    <div class="col-lg-8">
+                                <div :class="styleClasses.div_group">
+                                    <label :class="styleClasses._1_label" for="garages">Garages</label>
+                                    <div :class="styleClasses._2_div">
                                         <input
                                                 type="text"
                                                 id="garages"
-                                                class="form-control"
+                                                :class="styleClasses._input"
                                                 v-model="fields.garages">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label :class="label_classes" for="year_built">Year Built</label>
-                                    <div class="col-lg-8">
+                                <div :class="styleClasses.div_group">
+                                    <label :class="styleClasses._1_label" for="year_built">Year Built</label>
+                                    <div :class="styleClasses._2_div">
                                         <input
                                                 type="text"
                                                 id="year_built"
-                                                class="form-control"
+                                                :class="styleClasses._input"
                                                 v-model="fields.year_built">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label :class="label_classes" for="living_square_footage">Living Square Footage</label>
-                                    <div class="col-lg-8">
+                                <div :class="styleClasses.div_group">
+                                    <label :class="styleClasses._1_label" for="living_square_footage">Living Square Footage</label>
+                                    <div :class="styleClasses._2_div">
                                         <input
                                                 type="text"
                                                 id="living_square_footage"
-                                                class="form-control"
+                                                :class="styleClasses._input"
                                                 v-model="fields.living_square_footage">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label :class="label_classes" for="lot_square_footage">Lot Square Footage</label>
-                                    <div class="col-lg-8">
+                                <div :class="styleClasses.div_group">
+                                    <label :class="styleClasses._1_label" for="lot_square_footage">Lot Square Footage</label>
+                                    <div :class="styleClasses._2_div">
                                         <input
                                                 type="text"
                                                 id="lot_square_footage"
-                                                class="form-control"
+                                                :class="styleClasses._input"
                                                 v-model="fields.lot_square_footage">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label :class="label_classes" for="neighborhood">Neighborhood</label>
-                                    <div class="col-lg-8">
+                                <div :class="styleClasses.div_group">
+                                    <label :class="styleClasses._1_label" for="neighborhood">Neighborhood</label>
+                                    <div :class="styleClasses._2_div">
                                         <input
                                                 type="text"
                                                 id="neighborhood"
-                                                class="form-control"
+                                                :class="styleClasses._input"
                                                 v-model="fields.neighborhood">
                                     </div>
                                 </div>
@@ -130,12 +131,20 @@
 
 <script>
     import axios from "axios";
+    import "../Location/Form-States";
+
+    let styleClasses = {
+        div_group: 'form-group',
+        _1_label: 'col-lg-4 control-label',
+        _2_div: 'col-lg-8',
+        _input: 'form-control'
+    };
 
     export default {
         data() {
             return {
                 // Styling for form:
-                label_classes:      'col-lg-4 control-label',
+                styleClasses: styleClasses,
                 fields: {
                     street_address:         '',
                     city:                   '',
