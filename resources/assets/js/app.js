@@ -14,23 +14,30 @@ require('./bootstrap');
 import Vue from 'vue';
 import VueRouter from 'vue-router'
 
-Vue.use(VueRouter);
-//
-// import VueAxios from 'vue-axios';
-// import axios from 'axios';
-// Vue.use(VueAxios, axios);
-//
-// const router = new VueRouter({ mode: 'history'});
-// new Vue(Vue.util.extend({ router })).$mount('#app');
-
-
+// Main Vue Component for handling user interaction once signed up.
 import Dashboard from './components/Dashboard';
+import Properties from './components/Properties/Properties';
+import NewProperty from './components/Properties/New-Property';
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+Vue.use(VueRouter);
+
+// Something failing here. Not calling the routes properly
+//
+// const router = new VueRouter({
+//     mode: 'history',
+//     routes: routes
+// });
+
+const routes = [
+    { path: '/',  component: Properties },
+    { path: '/home', component: Properties },
+    { path: '/new-property', component: NewProperty },
+];
+
+const router = new VueRouter({
+    mode: 'history',
+    routes
+});
 
 // This javascript will be the main holder of global components for each SPA aspect.
 // At this point, there is only the dashboard.
@@ -38,7 +45,11 @@ Vue.component('dashboard', Dashboard);
 
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    router: router,
+    components: {
+        Properties: Properties
+    }
 });
 
 Vue.config.devtools = true;

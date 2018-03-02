@@ -1,7 +1,6 @@
 <template>
     <div>
-        <select>
-            <!--<option v-for="state in states" :value="state.id">{{ state.name }}</option>-->
+        <select id="state_id" name="state_id" >
             <option value="">Choose a state...</option>
             <option value="1">Alabama</option>
             <option value="2">Alaska</option>
@@ -59,29 +58,11 @@
 </template>
 
 <script>
-
-    // todo: Get list of states and Ids from API call instead of hardcoding it.
-    import axios from "axios";
-
     export default {
         name: "form-states",
         data() {
-            return {
-                states: this.getStates()
-            };
+            return {};
         },
-        methods: {
-            getStates() {
-                return axios.get('/api/location/states')
-                    .then(function (response) {
-                        console.log(response.data);
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
-
-            }
-        }
     }
 </script>
 
