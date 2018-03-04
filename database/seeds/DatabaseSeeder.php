@@ -11,6 +11,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        if (env('production')) {
+            throw new RuntimeException('Seeders should never run in production!');
+        }
+
         // $this->call(UsersTableSeeder::class);
     }
 }
