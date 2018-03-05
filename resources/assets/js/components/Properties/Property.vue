@@ -29,6 +29,7 @@
                             type="text"
                             id="street_address"
                             class="form-control"
+                            v-model="editValues.street_address"
                         >
                     </div>
                 </div>
@@ -39,6 +40,7 @@
                                 type="text"
                                 id="city"
                                 class="form-control"
+                                v-model="editValues.city"
                         >
                     </div>
                 </div>
@@ -49,6 +51,7 @@
                                 type="text"
                                 id="zip"
                                 class="form-control"
+                                v-model="editValues.zip"
                         >
                     </div>
                 </div>
@@ -62,6 +65,8 @@
 </template>
 
 <script>
+    import axios from 'axios';
+
     export default {
         name: "property",
         props: ['prop'],
@@ -86,6 +91,33 @@
             },
             onCancel() {
                 this.editing = false;
+            },
+            onDelete() {
+                this.$emit('propertyDeleted', this.prop.id);
+
+                axios.delete('/api/property/' + this.prop.id)
+                    .then(
+                        response => console.log(response)
+                    )
+                    .catch(
+                        error => console.log(error)
+                    )
+            },
+            onUpdate() {
+                this.editing = false;
+
+                this.prop.street_address = this.editValues.street_address;
+                this.prop.city = this.editValues.city;
+                this.prop.zip = this.editValues.zip;
+
+                axios.put(
+                    '/api/property/' + this.prop.id,
+                    {
+                        street_address: this.editValues.street_address,
+                        city: this.editValues.city,
+                        zip: this.editValues.zip
+                    }
+                )
             }
         }
     }

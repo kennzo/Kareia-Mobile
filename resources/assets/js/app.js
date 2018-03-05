@@ -29,9 +29,21 @@ Vue.use(VueRouter);
 // });
 
 const routes = [
-    { path: '/',  component: Properties },
-    { path: '/home', component: Properties },
-    { path: '/new-property', component: NewProperty },
+    {
+        path: '/',
+        name: 'homepage',
+        component: Properties
+    },
+    {
+        path: '/home',
+        name: 'home',
+        component: Properties
+    },
+    {
+        path: '/new-property',
+        name: 'new-property',
+        component: NewProperty
+    },
 ];
 
 const router = new VueRouter({

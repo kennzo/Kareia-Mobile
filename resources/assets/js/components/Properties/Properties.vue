@@ -8,7 +8,11 @@
                     </div>
 
                     <div class="panel-body">
-                        <property v-for="item in properties" :prop="item"></property>
+                        <property
+                            v-for="item in properties"
+                            :prop="item"
+                            @propertyDeleted="onPropertyDeleted($event)">
+                        </property>
                     </div>
                 </div>
             </div>
@@ -39,6 +43,13 @@
                     .catch(
                         error => console.log(error)
                     );
+            },
+            onPropertyDeleted(id) {
+                const position = this.properties.findIndex(
+                    (element) => {
+                    return element.id === id;
+                });
+                this.properties.splice(position, 1);
             }
         },
         components: {
