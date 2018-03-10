@@ -20,4 +20,7 @@
         </div>
     </div>
 </div>
+
+<dashboard></dashboard>
+
 @endsection
