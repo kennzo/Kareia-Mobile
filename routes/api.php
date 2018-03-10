@@ -4,7 +4,6 @@ use App\Http\Resources\StateCollection;
 use App\Http\Resources\StateResource;
 use App\Models\State;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------

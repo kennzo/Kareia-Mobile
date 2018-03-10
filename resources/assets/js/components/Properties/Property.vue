@@ -2,18 +2,26 @@
     <div class="panel panel-default">
         <div v-if="!editing">
             <div class="panel-body">
-                <div class="row">
-                    <label class="col-lg-4 control-label" for="street_address">Street Address</label>
-                    <p class="col-lg-8">{{ prop.street_address }}</p>
-                </div>
-                <div class="row">
-                    <label class="col-lg-4 control-label" for="city">City</label>
-                    <p class="col-lg-8">{{ prop.city }}</p>
-                </div>
-                <div class="row">
-                    <label class="col-lg-4 control-label" for="zip">Zip</label>
-                    <p class="col-lg-8">{{ prop.zip }}</p>
-                </div>
+                <show-property-field
+                    v-for="(value, key) in prop" :key="key"
+                    v-if="ignoreFields.indexOf(key) < 0"
+                    label_class="col-lg-4"
+                    :label_text="key"
+                    display_class="col-lg-8"
+                    :display_text="value"
+                ></show-property-field>
+                <!--<div class="row">-->
+                    <!--<label class="col-lg-4 control-label">Street Address</label>-->
+                    <!--<p class="col-lg-8">{{ prop.street_address }}</p>-->
+                <!--</div>-->
+                <!--<div class="row">-->
+                    <!--<label class="col-lg-4 control-label">City</label>-->
+                    <!--<p class="col-lg-8">{{ prop.city }}</p>-->
+                <!--</div>-->
+                <!--<div class="row">-->
+                    <!--<label class="col-lg-4 control-label">Zip</label>-->
+                    <!--<p class="col-lg-8">{{ prop.zip }}</p>-->
+                <!--</div>-->
             </div>
             <div class="panel-footer">
                 <a @click="onEdit">Edit</a> |
@@ -66,8 +74,10 @@
 
 <script>
     import axios from 'axios';
+    import ShowPropertyField from "./ShowPropertyField";
 
     export default {
+        components: {ShowPropertyField},
         name: "property",
         props: ['prop'],
         data() {
@@ -77,7 +87,14 @@
                     street_address: this.prop.street_address,
                     city: this.prop.city,
                     zip: this.prop.zip
-                }
+                },
+                ignoreFields: [
+                    'id',
+                    'user_id',
+                    'created_at',
+                    'updated_at',
+                    'deleted_at'
+                ]
             }
         },
         methods: {

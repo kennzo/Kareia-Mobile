@@ -9,8 +9,8 @@
 
                     <div class="panel-body">
                         <property
-                            v-for="item in properties"
-                            :prop="item"
+                            v-for="(value, key) in properties" :key="key"
+                            :prop="value"
                             @propertyDeleted="onPropertyDeleted($event)">
                         </property>
                     </div>

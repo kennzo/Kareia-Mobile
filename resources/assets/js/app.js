@@ -21,13 +21,6 @@ import NewProperty from './components/Properties/New-Property';
 
 Vue.use(VueRouter);
 
-// Something failing here. Not calling the routes properly
-//
-// const router = new VueRouter({
-//     mode: 'history',
-//     routes: routes
-// });
-
 const routes = [
     {
         path: '/',
