@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Property;
+use Auth;
 use Illuminate\Http\Request;
 
 class PropertyController extends Controller
@@ -15,7 +16,8 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        $properties = Property::all();
+        $properties = Property::where('user_id', '=', Auth::user()->getAuthIdentifier())
+                              ->get();
         $response = [
             'properties' => $properties,
         ];
