@@ -55,9 +55,6 @@ class Kernel extends HttpKernel
         'api' => [
             'throttle:60,1',
             'bindings',
-            EncryptCookies::class,
-            StartSession::class,
-            VerifyCsrfToken::class,
         ],
     ];
 

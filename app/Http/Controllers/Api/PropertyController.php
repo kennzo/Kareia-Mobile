@@ -32,8 +32,11 @@ class PropertyController extends Controller
      */
     public function store(Request $request)
     {
+        $parameters = $request->input();
+        $parameters['user_id'] = Auth::user()->getAuthIdentifier();
+
         $property = new Property();
-        $property->fill($request->input());
+        $property->fill($parameters);
         $property->save();
         return response()->json(['property' => $property], 201);
     }
@@ -62,6 +65,7 @@ class PropertyController extends Controller
      */
     public function update(Request $request, Property $property)
     {
+        /** @var Property $foundProperty */
         $foundProperty = Property::find($property->id);
         if (!$foundProperty) {
             return response()->json(['message' => 'Property not found'], 404);
@@ -82,6 +86,7 @@ class PropertyController extends Controller
      */
     public function destroy(Property $property)
     {
+        /** @var Property $foundProperty */
         $foundProperty = Property::find($property->id);
         if (!$foundProperty) {
             return response()->json(['message' => 'Property not found'], 404);
