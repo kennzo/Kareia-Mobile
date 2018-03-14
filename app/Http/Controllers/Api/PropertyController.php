@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Property;
+use Auth;
 use Illuminate\Http\Request;
+use Log;
 
 class PropertyController extends Controller
 {
@@ -15,7 +17,8 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        $properties = Property::all();
+        $properties = Property::where('user_id', '=', Auth::user()->getAuthIdentifier())
+                              ->get();
         $response = [
             'properties' => $properties,
         ];
@@ -30,8 +33,11 @@ class PropertyController extends Controller
      */
     public function store(Request $request)
     {
+        $parameters = $request->input();
+        $parameters['user_id'] = Auth::user()->getAuthIdentifier();
+
         $property = new Property();
-        $property->fill($request->input());
+        $property->fill($parameters);
         $property->save();
         return response()->json(['property' => $property], 201);
     }
@@ -60,14 +66,19 @@ class PropertyController extends Controller
      */
     public function update(Request $request, Property $property)
     {
+        /** @var Property $foundProperty */
         $foundProperty = Property::find($property->id);
-        if (!$foundProperty) {
+        if ( ! $foundProperty) {
             return response()->json(['message' => 'Property not found'], 404);
         }
 
-        $foundProperty->fill($request->input());
-        $foundProperty->update();
-        return response()->json(['property' => $foundProperty], 200);
+        if ($foundProperty->user_id == Auth::user()->getAuthIdentifier()) {
+            $foundProperty->fill($request->input());
+            $foundProperty->update();
+            return response()->json(['property' => $foundProperty], 200);
+        }
+
+        return response()->json(['message' => 'Unauthorized access. Cannot update.'], 401);
     }
 
     /**
@@ -80,11 +91,17 @@ class PropertyController extends Controller
      */
     public function destroy(Property $property)
     {
+        /** @var Property $foundProperty */
         $foundProperty = Property::find($property->id);
         if (!$foundProperty) {
             return response()->json(['message' => 'Property not found'], 404);
         }
-        $foundProperty->delete();
-        return response()->json(['message' => "Property [$property->id] deleted."], 200);
+
+        if ($foundProperty->user_id == Auth::user()->getAuthIdentifier()) {
+            $foundProperty->delete();
+            return response()->json(['message' => "Property [$property->id] deleted."], 200);
+        }
+
+        return response()->json(['message' => 'Unauthorized access. Cannot delete.'], 401);
     }
 }

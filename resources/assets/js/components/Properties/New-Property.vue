@@ -213,7 +213,6 @@
                 axios.post(
                     '/api/property',
                     {
-                        user_id:                1, // todo: pass in via prop later
                         street_address:         this.fields.street_address,
                         city:                   this.fields.city,
                         state_id:               this.fields.state_id,
