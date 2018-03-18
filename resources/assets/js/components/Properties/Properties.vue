@@ -8,14 +8,9 @@
                     </div>
 
                     <div class="panel-body">
-                        <!--<property-->
-                            <!--v-for="(value, key) in properties" :key="key"-->
-                            <!--:prop="value"-->
-                            <!--@propertyDeleted="onPropertyDeleted($event)">-->
-                        <!--</property>-->
                         <list-item
                             v-for="(value, key) in properties" :key="key"
-                            :prop="value"
+                            :property="value"
                             @propertyDeleted="onPropertyDeleted($event)">
                         </list-item>
                     </div>
@@ -26,7 +21,6 @@
 </template>
 
 <script>
-    import property from './Property';
     import listItem from './ListItem';
     import axios from 'axios';
 
@@ -59,7 +53,6 @@
             }
         },
         components: {
-            'property': property,
             'listItem': listItem
         }
     }

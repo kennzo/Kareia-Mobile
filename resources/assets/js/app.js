@@ -12,57 +12,15 @@
 require('./bootstrap');
 
 import Vue from 'vue';
-import VueRouter from 'vue-router'
+import Dashboard from './components/Dashboard';
+import router from './router'
 
 // Main Vue Component for handling user interaction once signed up.
-import Dashboard from './components/Dashboard';
 import Properties from './components/Properties/Properties';
-import NewProperty from './components/Properties/New-Property';
-
-Vue.use(VueRouter);
-
-const routes = [
-    {
-        path: '/',
-        name: 'homepage',
-        component: Properties
-    },
-    {
-        path: '/home',
-        name: 'home',
-        component: Properties
-    },
-    {
-        path: '/new-property',
-        name: 'new-property',
-        component: NewProperty
-    },
-];
-
-const router = new VueRouter({
-    mode: 'history',
-    routes
-});
 
 // This javascript will be the main holder of global components for each SPA aspect.
 // At this point, there is only the dashboard.
 Vue.component('dashboard', Dashboard);
-
-// Passport - OAuth2 components
-Vue.component(
-    'passport-clients',
-    require('./components/passport/Clients.vue')
-);
-
-Vue.component(
-    'passport-authorized-clients',
-    require('./components/passport/AuthorizedClients.vue')
-);
-
-Vue.component(
-    'passport-personal-access-tokens',
-    require('./components/passport/PersonalAccessTokens.vue')
-);
 
 const app = new Vue({
     el: '#app',
