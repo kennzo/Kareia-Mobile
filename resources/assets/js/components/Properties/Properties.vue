@@ -37,7 +37,8 @@
                     .then(
                         response => {
                             console.log(response);
-                            this.properties = response.data.properties;
+                            this.$store.state.properties = response.data.properties;
+                            this.properties = this.$store.state.properties;
                         }
                     )
                     .catch(

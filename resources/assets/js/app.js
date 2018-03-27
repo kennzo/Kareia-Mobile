@@ -13,7 +13,8 @@ require('./bootstrap');
 
 import Vue from 'vue';
 import Dashboard from './components/Dashboard';
-import router from './router'
+import router from './router';
+import store from './store';
 
 // Main Vue Component for handling user interaction once signed up.
 import Properties from './components/Properties/Properties';
@@ -25,6 +26,7 @@ Vue.component('dashboard', Dashboard);
 const app = new Vue({
     el: '#app',
     router: router,
+    store: store,
     components: {
         Properties: Properties
     }

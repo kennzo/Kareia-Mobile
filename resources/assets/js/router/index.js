@@ -25,8 +25,8 @@ const routes = [
         component: NewProperty
     },
     {
-        path: '/show',
-        name: 'show',
+        path: '/show/:id',
+        name: 'showProperty',
         component: Property
     },
 ];
