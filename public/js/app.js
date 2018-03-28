@@ -12980,7 +12980,15 @@ var styleClasses = {
             this.editValues = {
                 street_address: this.thisProperty.street_address,
                 city: this.thisProperty.city,
-                zip: this.thisProperty.zip
+                state_id: this.thisProperty.state_id,
+                zip: this.thisProperty.zip,
+                bedrooms: this.thisProperty.bedrooms,
+                bathrooms: this.thisProperty.bathrooms,
+                garages: this.thisProperty.garages,
+                year_built: this.thisProperty.year_built,
+                living_square_footage: this.thisProperty.living_square_footage,
+                lot_square_footage: this.thisProperty.lot_square_footage,
+                neighborhood: this.thisProperty.neighborhood
             };
         },
         onCancel: function onCancel() {
@@ -13004,6 +13012,11 @@ var styleClasses = {
             this.thisProperty.zip = this.editValues.zip;
             this.thisProperty.bedrooms = this.editValues.bedrooms;
             this.thisProperty.bathrooms = this.editValues.bathrooms;
+            this.thisProperty.garages = this.editValues.garages;
+            this.thisProperty.year_built = this.editValues.year_built;
+            this.thisProperty.living_square_footage = this.editValues.living_square_footage;
+            this.thisProperty.lot_square_footage = this.editValues.lot_square_footage;
+            this.thisProperty.neighborhood = this.editValues.neighborhood;
 
             __WEBPACK_IMPORTED_MODULE_0_axios___default.a.put('/api/property/' + this.thisProperty.id, {
                 street_address: this.editValues.street_address,
@@ -13011,7 +13024,12 @@ var styleClasses = {
                 state_id: this.editValues.state_id,
                 zip: this.editValues.zip,
                 bedrooms: this.editValues.bedrooms,
-                bathrooms: this.editValues.bathrooms
+                bathrooms: this.editValues.bathrooms,
+                garages: this.editValues.garages,
+                year_built: this.editValues.year_built,
+                living_square_footage: this.editValues.living_square_footage,
+                lot_square_footage: this.editValues.lot_square_footage,
+                neighborhood: this.editValues.neighborhood
             });
         }
     }
@@ -48509,7 +48527,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.display_text.length > 0
+  return _vm.display_text
     ? _c("div", [
         _c("div", { staticClass: "row" }, [
           _c("label", { class: _vm.label_class }, [
