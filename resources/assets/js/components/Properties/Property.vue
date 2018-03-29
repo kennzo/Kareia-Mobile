@@ -7,7 +7,7 @@
                         <div v-if="!editing">
                             <div class="panel-body">
                                 <show-property-field
-                                        v-for="(value, key) in thisProperty" :key="key"
+                                        v-for="(value, key) in propertyAttributesOrder" :key="key"
                                         v-if="ignoreFields.indexOf(key) < 0"
                                         label_class="col-lg-4"
                                         :label_text="key"
@@ -62,59 +62,9 @@
                                 <div class="form-group">
                                     <label class="col-lg-4 control-label" for="state_id">State</label>
                                     <div class="col-lg-8">
-                                        <select id="state_id" name="state_id" v-model="editValues.state_id">
+                                        <select id="state_id" name="state_id" v-model="editValues.state_id" class="form-control">
                                             <option value="">Choose a state...</option>
-                                            <option value="1">Alabama</option>
-                                            <option value="2">Alaska</option>
-                                            <option value="3">Arizona</option>
-                                            <option value="4">Arkansas</option>
-                                            <option value="5">California</option>
-                                            <option value="6">Colorado</option>
-                                            <option value="7">Connecticut</option>
-                                            <option value="8">Delaware</option>
-                                            <option value="9">Florida</option>
-                                            <option value="10">Georgia</option>
-                                            <option value="11">Hawaii</option>
-                                            <option value="12">Idaho</option>
-                                            <option value="13">Illinois</option>
-                                            <option value="14">Indiana</option>
-                                            <option value="15">Iowa</option>
-                                            <option value="16">Kansas</option>
-                                            <option value="17">Kentucky</option>
-                                            <option value="18">Louisiana</option>
-                                            <option value="19">Maine</option>
-                                            <option value="20">Maryland</option>
-                                            <option value="21">Massachusetts</option>
-                                            <option value="22">Michigan</option>
-                                            <option value="23">Minnesota</option>
-                                            <option value="24">Mississippi</option>
-                                            <option value="25">Missouri</option>
-                                            <option value="26">Montana</option>
-                                            <option value="27">Nebraska</option>
-                                            <option value="28">Nevada</option>
-                                            <option value="29">New Hampshire</option>
-                                            <option value="30">New Jersey</option>
-                                            <option value="31">New Mexico</option>
-                                            <option value="32">New York</option>
-                                            <option value="33">North Carolina</option>
-                                            <option value="34">North Dakota</option>
-                                            <option value="35">Ohio</option>
-                                            <option value="36">Oklahoma</option>
-                                            <option value="37">Oregon</option>
-                                            <option value="38">Pennsylvania</option>
-                                            <option value="39">Rhode Island</option>
-                                            <option value="40">South Carolina</option>
-                                            <option value="41">South Dakota</option>
-                                            <option value="42">Tennessee</option>
-                                            <option value="43">Texas</option>
-                                            <option value="44">Utah</option>
-                                            <option value="45">Vermont</option>
-                                            <option value="46">Virginia</option>
-                                            <option value="47">Washington</option>
-                                            <option value="48">West Virginia</option>
-                                            <option value="49">Wisconsin</option>
-                                            <option value="50">Wyoming</option>
-                                            <option value="51">District of Columbia</option>
+                                            <option v-for="(item, index) in this.$store.state.statesList" :value="index">{{ item }}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -226,7 +176,9 @@
     import ShowPropertyField from "./ShowPropertyField";
 
     export default {
-        components: {ShowPropertyField},
+        components: {
+            ShowPropertyField,
+        },
         name: "property",
         data() {
             return {
@@ -249,23 +201,41 @@
                         return properties[i];
                     }
                 }
+            },
+            propertyAttributesOrder: function () {
+                let stateId = this.thisProperty.state_id;
+                let stateName = this.$store.state.statesList[stateId];
+
+                return {
+                    'Street Address':           this.thisProperty.street_address,
+                    'City':                     this.thisProperty.city,
+                    'State':                    stateName,
+                    'Zip Code':                 this.thisProperty.zip,
+                    'Bedrooms':                 this.thisProperty.bedrooms,
+                    'Bathrooms':                this.thisProperty.bathrooms,
+                    'Garages':                  this.thisProperty.garages,
+                    'Year Built':               this.thisProperty.year_built,
+                    'Living Square Footage':    this.thisProperty.living_square_footage,
+                    'Lot Square Footage':       this.thisProperty.lot_square_footage,
+                    'Neighborhood':             this.thisProperty.neighborhood
+                };
             }
         },
         methods: {
             onEdit() {
                 this.editing = true;
                 this.editValues = {
-                    street_address: this.thisProperty.street_address,
-                    city: this.thisProperty.city,
-                    state_id: this.thisProperty.state_id,
-                    zip: this.thisProperty.zip,
-                    bedrooms: this.thisProperty.bedrooms,
-                    bathrooms: this.thisProperty.bathrooms,
-                    garages: this.thisProperty.garages,
-                    year_built: this.thisProperty.year_built,
-                    living_square_footage: this.thisProperty.living_square_footage,
-                    lot_square_footage: this.thisProperty.lot_square_footage,
-                    neighborhood: this.thisProperty.neighborhood
+                    street_address:         this.thisProperty.street_address,
+                    city:                   this.thisProperty.city,
+                    state_id:               this.thisProperty.state_id,
+                    zip:                    this.thisProperty.zip,
+                    bedrooms:               this.thisProperty.bedrooms,
+                    bathrooms:              this.thisProperty.bathrooms,
+                    garages:                this.thisProperty.garages,
+                    year_built:             this.thisProperty.year_built,
+                    living_square_footage:  this.thisProperty.living_square_footage,
+                    lot_square_footage:     this.thisProperty.lot_square_footage,
+                    neighborhood:           this.thisProperty.neighborhood
                 }
             },
             onCancel() {
@@ -284,9 +254,12 @@
             },
             onUpdate() {
                 this.editing = false;
+                let stateId = this.thisProperty.state_id;
+                let stateName = this.$store.state.statesList[stateId];
 
                 this.thisProperty.street_address = this.editValues.street_address;
                 this.thisProperty.city = this.editValues.city;
+                this.thisProperty.state_name = stateName;
                 this.thisProperty.state_id = this.editValues.state_id;
                 this.thisProperty.zip = this.editValues.zip;
                 this.thisProperty.bedrooms = this.editValues.bedrooms;
