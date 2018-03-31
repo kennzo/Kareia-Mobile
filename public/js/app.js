@@ -12384,6 +12384,8 @@ if (false) {(function () {
 //
 //
 //
+//
+//
 
 
 
@@ -12411,56 +12413,6 @@ if (false) {(function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Location_Form_States__ = __webpack_require__(66);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -12899,62 +12851,14 @@ var styleClasses = {
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-    components: { ShowPropertyField: __WEBPACK_IMPORTED_MODULE_1__ShowPropertyField__["a" /* default */] },
+    components: {
+        ShowPropertyField: __WEBPACK_IMPORTED_MODULE_1__ShowPropertyField__["a" /* default */]
+    },
     name: "property",
     data: function data() {
         return {
@@ -12972,6 +12876,24 @@ var styleClasses = {
                     return properties[i];
                 }
             }
+        },
+        propertyAttributesOrder: function propertyAttributesOrder() {
+            var stateId = this.thisProperty.state_id;
+            var stateName = this.$store.state.statesList[stateId];
+
+            return {
+                'Street Address': this.thisProperty.street_address,
+                'City': this.thisProperty.city,
+                'State': stateName,
+                'Zip Code': this.thisProperty.zip,
+                'Bedrooms': this.thisProperty.bedrooms,
+                'Bathrooms': this.thisProperty.bathrooms,
+                'Garages': this.thisProperty.garages,
+                'Year Built': this.thisProperty.year_built,
+                'Living Square Footage': this.thisProperty.living_square_footage,
+                'Lot Square Footage': this.thisProperty.lot_square_footage,
+                'Neighborhood': this.thisProperty.neighborhood
+            };
         }
     },
     methods: {
@@ -13005,9 +12927,12 @@ var styleClasses = {
         },
         onUpdate: function onUpdate() {
             this.editing = false;
+            var stateId = this.thisProperty.state_id;
+            var stateName = this.$store.state.statesList[stateId];
 
             this.thisProperty.street_address = this.editValues.street_address;
             this.thisProperty.city = this.editValues.city;
+            this.thisProperty.state_name = stateName;
             this.thisProperty.state_id = this.editValues.state_id;
             this.thisProperty.zip = this.editValues.zip;
             this.thisProperty.bedrooms = this.editValues.bedrooms;
@@ -47166,7 +47091,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -47185,19 +47110,27 @@ var render = function() {
   return _c("div", { staticClass: "panel panel-default" }, [
     _c("div", { staticClass: "panel-body" }, [
       _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-4" }, [
+        _c("div", { staticClass: "col-md-6" }, [
           _c("label", [_vm._v("Street Address")]),
           _vm._v(" "),
           _c("p", [_vm._v(_vm._s(_vm.property.street_address))])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-4" }, [
+        _c("div", { staticClass: "col-md-2" }, [
           _c("label", [_vm._v("City")]),
           _vm._v(" "),
           _c("p", [_vm._v(_vm._s(_vm.property.city))])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-4" }, [
+        _c("div", { staticClass: "col-md-2" }, [
+          _c("label", [_vm._v("State")]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(_vm._s(this.$store.state.statesList[_vm.property.state_id]))
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-2" }, [
           _c("label", [_vm._v("Zip")]),
           _vm._v(" "),
           _c("p", [_vm._v(_vm._s(_vm.property.zip))])
@@ -47209,7 +47142,6 @@ var render = function() {
       "div",
       { staticClass: "panel-footer" },
       [
-        _vm._v("\n        " + _vm._s(_vm.property.id) + " |\n        "),
         _c(
           "router-link",
           {
@@ -47386,7 +47318,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -47744,7 +47676,7 @@ var render = function() {
                       [_vm._v("State")]
                     ),
                     _vm._v(" "),
-                    _c("div", [
+                    _c("div", { class: _vm.styleClasses._2_div }, [
                       _c(
                         "select",
                         {
@@ -47756,6 +47688,7 @@ var render = function() {
                               expression: "fields.state_id"
                             }
                           ],
+                          class: _vm.styleClasses._input,
                           attrs: { id: "state_id", name: "state_id" },
                           on: {
                             change: function($event) {
@@ -47782,210 +47715,18 @@ var render = function() {
                             _vm._v("Choose a state...")
                           ]),
                           _vm._v(" "),
-                          _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("Alabama")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "2" } }, [
-                            _vm._v("Alaska")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "3" } }, [
-                            _vm._v("Arizona")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "4" } }, [
-                            _vm._v("Arkansas")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "5" } }, [
-                            _vm._v("California")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "6" } }, [
-                            _vm._v("Colorado")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "7" } }, [
-                            _vm._v("Connecticut")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "8" } }, [
-                            _vm._v("Delaware")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "9" } }, [
-                            _vm._v("Florida")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "10" } }, [
-                            _vm._v("Georgia")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "11" } }, [
-                            _vm._v("Hawaii")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "12" } }, [
-                            _vm._v("Idaho")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "13" } }, [
-                            _vm._v("Illinois")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "14" } }, [
-                            _vm._v("Indiana")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "15" } }, [
-                            _vm._v("Iowa")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "16" } }, [
-                            _vm._v("Kansas")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "17" } }, [
-                            _vm._v("Kentucky")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "18" } }, [
-                            _vm._v("Louisiana")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "19" } }, [
-                            _vm._v("Maine")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "20" } }, [
-                            _vm._v("Maryland")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "21" } }, [
-                            _vm._v("Massachusetts")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "22" } }, [
-                            _vm._v("Michigan")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "23" } }, [
-                            _vm._v("Minnesota")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "24" } }, [
-                            _vm._v("Mississippi")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "25" } }, [
-                            _vm._v("Missouri")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "26" } }, [
-                            _vm._v("Montana")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "27" } }, [
-                            _vm._v("Nebraska")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "28" } }, [
-                            _vm._v("Nevada")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "29" } }, [
-                            _vm._v("New Hampshire")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "30" } }, [
-                            _vm._v("New Jersey")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "31" } }, [
-                            _vm._v("New Mexico")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "32" } }, [
-                            _vm._v("New York")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "33" } }, [
-                            _vm._v("North Carolina")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "34" } }, [
-                            _vm._v("North Dakota")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "35" } }, [
-                            _vm._v("Ohio")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "36" } }, [
-                            _vm._v("Oklahoma")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "37" } }, [
-                            _vm._v("Oregon")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "38" } }, [
-                            _vm._v("Pennsylvania")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "39" } }, [
-                            _vm._v("Rhode Island")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "40" } }, [
-                            _vm._v("South Carolina")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "41" } }, [
-                            _vm._v("South Dakota")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "42" } }, [
-                            _vm._v("Tennessee")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "43" } }, [
-                            _vm._v("Texas")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "44" } }, [
-                            _vm._v("Utah")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "45" } }, [
-                            _vm._v("Vermont")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "46" } }, [
-                            _vm._v("Virginia")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "47" } }, [
-                            _vm._v("Washington")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "48" } }, [
-                            _vm._v("West Virginia")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "49" } }, [
-                            _vm._v("Wisconsin")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "50" } }, [
-                            _vm._v("Wyoming")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "51" } }, [
-                            _vm._v("District of Columbia")
-                          ])
-                        ]
+                          _vm._l(this.$store.state.statesList, function(
+                            item,
+                            index
+                          ) {
+                            return _c(
+                              "option",
+                              { domProps: { value: index } },
+                              [_vm._v(_vm._s(item))]
+                            )
+                          })
+                        ],
+                        2
                       )
                     ])
                   ]),
@@ -48572,7 +48313,7 @@ var render = function() {
                   _c(
                     "div",
                     { staticClass: "panel-body" },
-                    _vm._l(_vm.thisProperty, function(value, key) {
+                    _vm._l(_vm.propertyAttributesOrder, function(value, key) {
                       return _vm.ignoreFields.indexOf(key) < 0
                         ? _c("show-property-field", {
                             key: key,
@@ -48698,6 +48439,7 @@ var render = function() {
                                 expression: "editValues.state_id"
                               }
                             ],
+                            staticClass: "form-control",
                             attrs: { id: "state_id", name: "state_id" },
                             on: {
                               change: function($event) {
@@ -48724,210 +48466,18 @@ var render = function() {
                               _vm._v("Choose a state...")
                             ]),
                             _vm._v(" "),
-                            _c("option", { attrs: { value: "1" } }, [
-                              _vm._v("Alabama")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "2" } }, [
-                              _vm._v("Alaska")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "3" } }, [
-                              _vm._v("Arizona")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "4" } }, [
-                              _vm._v("Arkansas")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "5" } }, [
-                              _vm._v("California")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "6" } }, [
-                              _vm._v("Colorado")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "7" } }, [
-                              _vm._v("Connecticut")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "8" } }, [
-                              _vm._v("Delaware")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "9" } }, [
-                              _vm._v("Florida")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "10" } }, [
-                              _vm._v("Georgia")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "11" } }, [
-                              _vm._v("Hawaii")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "12" } }, [
-                              _vm._v("Idaho")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "13" } }, [
-                              _vm._v("Illinois")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "14" } }, [
-                              _vm._v("Indiana")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "15" } }, [
-                              _vm._v("Iowa")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "16" } }, [
-                              _vm._v("Kansas")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "17" } }, [
-                              _vm._v("Kentucky")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "18" } }, [
-                              _vm._v("Louisiana")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "19" } }, [
-                              _vm._v("Maine")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "20" } }, [
-                              _vm._v("Maryland")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "21" } }, [
-                              _vm._v("Massachusetts")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "22" } }, [
-                              _vm._v("Michigan")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "23" } }, [
-                              _vm._v("Minnesota")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "24" } }, [
-                              _vm._v("Mississippi")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "25" } }, [
-                              _vm._v("Missouri")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "26" } }, [
-                              _vm._v("Montana")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "27" } }, [
-                              _vm._v("Nebraska")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "28" } }, [
-                              _vm._v("Nevada")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "29" } }, [
-                              _vm._v("New Hampshire")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "30" } }, [
-                              _vm._v("New Jersey")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "31" } }, [
-                              _vm._v("New Mexico")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "32" } }, [
-                              _vm._v("New York")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "33" } }, [
-                              _vm._v("North Carolina")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "34" } }, [
-                              _vm._v("North Dakota")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "35" } }, [
-                              _vm._v("Ohio")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "36" } }, [
-                              _vm._v("Oklahoma")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "37" } }, [
-                              _vm._v("Oregon")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "38" } }, [
-                              _vm._v("Pennsylvania")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "39" } }, [
-                              _vm._v("Rhode Island")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "40" } }, [
-                              _vm._v("South Carolina")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "41" } }, [
-                              _vm._v("South Dakota")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "42" } }, [
-                              _vm._v("Tennessee")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "43" } }, [
-                              _vm._v("Texas")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "44" } }, [
-                              _vm._v("Utah")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "45" } }, [
-                              _vm._v("Vermont")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "46" } }, [
-                              _vm._v("Virginia")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "47" } }, [
-                              _vm._v("Washington")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "48" } }, [
-                              _vm._v("West Virginia")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "49" } }, [
-                              _vm._v("Wisconsin")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "50" } }, [
-                              _vm._v("Wyoming")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "51" } }, [
-                              _vm._v("District of Columbia")
-                            ])
-                          ]
+                            _vm._l(this.$store.state.statesList, function(
+                              item,
+                              index
+                            ) {
+                              return _c(
+                                "option",
+                                { domProps: { value: index } },
+                                [_vm._v(_vm._s(item))]
+                              )
+                            })
+                          ],
+                          2
                         )
                       ])
                     ]),
@@ -49292,7 +48842,61 @@ if (false) {
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */]);
 
 var state = {
-    properties: []
+    properties: [],
+    // todo: Try to get this from the API?
+    statesList: {
+        "1": "Alabama",
+        "2": "Alaska",
+        "3": "Arizona",
+        "4": "Arkansas",
+        "5": "California",
+        "6": "Colorado",
+        "7": "Connecticut",
+        "8": "Delaware",
+        "9": "Florida",
+        "10": "Georgia",
+        "11": "Hawaii",
+        "12": "Idaho",
+        "13": "Illinois",
+        "14": "Indiana",
+        "15": "Iowa",
+        "16": "Kansas",
+        "17": "Kentucky",
+        "18": "Louisiana",
+        "19": "Maine",
+        "20": "Maryland",
+        "21": "Massachusetts",
+        "22": "Michigan",
+        "23": "Minnesota",
+        "24": "Mississippi",
+        "25": "Missouri",
+        "26": "Montana",
+        "27": "Nebraska",
+        "28": "Nevada",
+        "29": "New Hampshire",
+        "30": "New Jersey",
+        "31": "New Mexico",
+        "32": "New York",
+        "33": "North Carolina",
+        "34": "North Dakota",
+        "35": "Ohio",
+        "36": "Oklahoma",
+        "37": "Oregon",
+        "38": "Pennsylvania",
+        "39": "Rhode Island",
+        "40": "South Carolina",
+        "41": "South Dakota",
+        "42": "Tennessee",
+        "43": "Texas",
+        "44": "Utah",
+        "45": "Vermont",
+        "46": "Virginia",
+        "47": "Washington",
+        "48": "West Virginia",
+        "49": "Wisconsin",
+        "50": "Wyoming",
+        "51": "District of Columbia"
+    }
 };
 
 // asynchronous operations

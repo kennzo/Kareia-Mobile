@@ -2,23 +2,25 @@
     <div class="panel panel-default">
         <div class="panel-body">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <label>Street Address</label>
                     <p>{{ property.street_address }}</p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <label>City</label>
                     <p>{{ property.city }}</p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-2">
+                    <label>State</label>
+                    <p>{{ this.$store.state.statesList[property.state_id] }}</p>
+                </div>
+                <div class="col-md-2">
                     <label>Zip</label>
                     <p>{{ property.zip }}</p>
                 </div>
             </div>
         </div>
         <div class="panel-footer">
-            <!--<a @click="onEdit">Edit</a> |-->
-            {{ property.id }} |
             <router-link :to="{ name: 'showProperty', params: { id: this.property.id }}">Edit</router-link> |
             <a @click="onDelete">Delete</a>
         </div>
