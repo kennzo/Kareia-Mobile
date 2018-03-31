@@ -1,5 +1,5 @@
 <template>
-    <div v-if="display_text.length > 0">
+    <div v-if="display_text">
         <div class="row">
             <label :class="label_class">{{ label_text }}</label>
             <p :class="display_class">{{ display_text }}</p>

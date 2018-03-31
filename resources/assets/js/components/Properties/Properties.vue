@@ -8,11 +8,11 @@
                     </div>
 
                     <div class="panel-body">
-                        <property
+                        <list-item
                             v-for="(value, key) in properties" :key="key"
-                            :prop="value"
+                            :property="value"
                             @propertyDeleted="onPropertyDeleted($event)">
-                        </property>
+                        </list-item>
                     </div>
                 </div>
             </div>
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-    import property from './Property';
+    import listItem from './ListItem';
     import axios from 'axios';
 
     export default {
@@ -37,7 +37,8 @@
                     .then(
                         response => {
                             console.log(response);
-                            this.properties = response.data.properties;
+                            this.$store.state.properties = response.data.properties;
+                            this.properties = this.$store.state.properties;
                         }
                     )
                     .catch(
@@ -53,7 +54,7 @@
             }
         },
         components: {
-            'property': property
+            'listItem': listItem
         }
     }
 </script>
