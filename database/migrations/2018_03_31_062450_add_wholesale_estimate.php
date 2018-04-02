@@ -12,7 +12,7 @@ class AddWholesaleEstimate extends Migration
      */
     public function up()
     {
-        Schema::create('wholesale_exit', function (Blueprint $table) {
+        Schema::create('wholesale_exits', function (Blueprint $table) {
             $table->increments('id');
             $table->bigInteger('property_id')->index('wholesale_exit_property_id');
             $table->foreign('property_id')
@@ -24,6 +24,12 @@ class AddWholesaleEstimate extends Migration
             $table->string('deal_type')->nullable();
             $table->text('buyers')->nullable();
             $table->text('notes')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
+        });
+
+        Schema::table('properties', function (Blueprint $table) {
+            $table->boolean('hasWholesaleExit')->default(false);
         });
     }
 
@@ -34,6 +40,9 @@ class AddWholesaleEstimate extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wholesale_exit');
+        Schema::dropIfExists('wholesale_exits');
+        Schema::table('properties', function (Blueprint $table) {
+            $table->dropColumn('hasWholesaleExit');
+        });
     }
 }
