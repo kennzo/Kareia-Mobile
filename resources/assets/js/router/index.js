@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 // Component files
+import Dashboard from '../components/LoggedInMember/Dashboard';
 import Properties from '../components/Properties/Properties';
 import NewProperty from '../components/Properties/New-Property';
 import Property from '../components/Properties/Property';
@@ -12,12 +13,12 @@ const routes = [
     {
         path: '/',
         name: 'homepage',
-        component: Properties
+        component: Dashboard
     },
     {
         path: '/home',
         name: 'home',
-        component: Properties
+        component: Dashboard
     },
     {
         path: '/new-property',

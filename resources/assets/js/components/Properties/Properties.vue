@@ -4,7 +4,10 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <button class="btn btn-primary" @click="onGetProperties">Get Properties</button>
+                        <div class="row">
+                            <div class="panel-heading col-md-9">Properties</div>
+                            <button class="btn btn-primary col-md-2" @click="onGetProperties">Refresh</button>
+                        </div>
                     </div>
 
                     <div class="panel-body">

@@ -21,6 +21,6 @@
     </div>
 </div>
 
-<dashboard></dashboard>
+<logged-in-member></logged-in-member>
 
 @endsection

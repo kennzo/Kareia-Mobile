@@ -12,24 +12,20 @@
 require('./bootstrap');
 
 import Vue from 'vue';
-import Dashboard from './components/Dashboard';
+import LoggedInMember from './components/LoggedInMember/Main';
 import router from './router';
 import store from './store';
 
 // Main Vue Component for handling user interaction once signed up.
-import Properties from './components/Properties/Properties';
 
 // This javascript will be the main holder of global components for each SPA aspect.
 // At this point, there is only the dashboard.
-Vue.component('dashboard', Dashboard);
+Vue.component('logged-in-member', LoggedInMember);
 
 const app = new Vue({
     el: '#app',
     router: router,
     store: store,
-    components: {
-        Properties: Properties
-    }
 });
 
 Vue.config.devtools = true;
