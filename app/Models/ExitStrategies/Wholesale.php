@@ -15,6 +15,7 @@ class Wholesale extends Model
     protected $table = "wholesale_exits";
 
     protected $fillable = [
+        'user_id',
         'property_id',
         'arv',
         'estimated_repairs',
@@ -35,11 +36,21 @@ class Wholesale extends Model
     }
 
     /**
-     * Foreign key for property.
+     * Foreign key for user.
      *
      * @return HasOne
      */
     public function user()
+    {
+        return $this->hasOne('App\User');
+    }
+
+    /**
+     * Foreign key for property.
+     *
+     * @return HasOne
+     */
+    public function property()
     {
         return $this->hasOne('App\Models\Property');
     }

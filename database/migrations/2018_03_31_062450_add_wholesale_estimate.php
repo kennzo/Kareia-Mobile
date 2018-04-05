@@ -14,7 +14,11 @@ class AddWholesaleEstimate extends Migration
     {
         Schema::create('wholesale_exits', function (Blueprint $table) {
             $table->increments('id');
-            $table->bigInteger('property_id')->index('wholesale_exit_property_id');
+            $table->integer('user_id')->index('wholesale_exits_user_id');
+            $table->foreign('user_id')
+                  ->references('id')
+                  ->on('users');
+            $table->bigInteger('property_id')->index('wholesale_exits_property_id');
             $table->foreign('property_id')
                   ->references('id')
                   ->on('properties');

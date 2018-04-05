@@ -22,6 +22,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::apiResource('property', 'Api\PropertyController')->middleware('auth:api');
 
+Route::apiResource('wholesale', 'Api\WholesaleExitsController')->middleware('auth:api');
+
 Route::group(['prefix' => 'location'], function() {
     /**
      * Gets all the state info available

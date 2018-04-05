@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Property;
 use Auth;
+use Exception;
 use Illuminate\Http\Request;
 use Log;
 
@@ -17,12 +18,16 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        $properties = Property::where('user_id', '=', Auth::user()->getAuthIdentifier())
-                              ->get();
-        $response = [
-            'properties' => $properties,
-        ];
-        return response()->json($response, 200);
+        try {
+            $properties = Property::where('user_id', '=', Auth::user()->getAuthIdentifier())
+                                  ->get();
+            $response = [
+                'properties' => $properties,
+            ];
+            return response()->json($response, 200);
+        } catch (Exception $exception) {
+            return response()->json([ 'error' => $exception->getMessage()], 500);
+        }
     }
 
     /**
