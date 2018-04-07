@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="panel-footer">
-            <router-link :to="{ name: 'showProperty', params: { id: this.property.id }}">Edit</router-link> |
+            <router-link :to="{ name: 'showProperty', params: { id: this.property.id }}">View</router-link> |
             <a @click="onDelete">Delete</a>
         </div>
     </div>

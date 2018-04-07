@@ -3,9 +3,10 @@ import VueRouter from 'vue-router'
 
 // Component files
 import Dashboard from '../components/LoggedInMember/Dashboard';
-import Properties from '../components/Properties/Properties';
 import NewProperty from '../components/Properties/New-Property';
 import Property from '../components/Properties/Property';
+import NewWholesale from '../components/WholesaleExits/New-Wholesale';
+import Wholesale from '../components/WholesaleExits/Wholesale';
 
 Vue.use(VueRouter);
 
@@ -20,15 +21,27 @@ const routes = [
         name: 'home',
         component: Dashboard
     },
+    // Properties
     {
-        path: '/new-property',
+        path: 'property/new',
         name: 'new-property',
         component: NewProperty
     },
     {
-        path: '/show/:id',
+        path: 'property/show/:id',
         name: 'showProperty',
         component: Property
+    },
+    // Wholesale Exits
+    {
+        path: 'wholesale/new',
+        name: 'new-wholesale',
+        component: NewWholesale
+    },
+    {
+        path: 'wholesale/show/:id',
+        name: 'showWholesale',
+        component: Wholesale
     },
 ];
 

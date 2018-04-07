@@ -5,8 +5,11 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="row">
-                            <div class="panel-heading col-md-9">Properties</div>
+                            <div class="panel-heading col-md-6">Properties</div>
                             <button class="btn btn-primary col-md-2" @click="onGetProperties">Refresh</button>
+                            <router-link :to="{ name: 'new-property'}">
+                                <button class="btn btn-primary col-md-3">New Property</button>
+                            </router-link>
                         </div>
                     </div>
 

@@ -4,163 +4,157 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <div v-if="!editing">
-                            <div class="panel-body">
-                                <show-property-field
-                                        v-for="(value, key) in propertyAttributesOrder" :key="key"
-                                        v-if="ignoreFields.indexOf(key) < 0"
-                                        label_class="col-lg-4"
-                                        :label_text="key"
-                                        display_class="col-lg-8"
-                                        :display_text="value"
-                                ></show-property-field>
+                        <div class="row">
+                            <div class="panel-heading col-md-6">Property Details</div>
+                            <router-link to="/home">
+                                <button class="btn btn-primary col-md-3">Back</button>
+                            </router-link>
+                        </div>
+                    </div>
 
-                                <!--<div class="row">-->
-                                    <!--<label class="col-lg-4 control-label">Street Address</label>-->
-                                    <!--<p class="col-lg-8">{{ prop.street_address }}</p>-->
-                                <!--</div>-->
-                                <!--<div class="row">-->
-                                    <!--<label class="col-lg-4 control-label">City</label>-->
-                                    <!--<p class="col-lg-8">{{ prop.city }}</p>-->
-                                <!--</div>-->
-                                <!--<div class="row">-->
-                                    <!--<label class="col-lg-4 control-label">Zip</label>-->
-                                    <!--<p class="col-lg-8">{{ prop.zip }}</p>-->
-                                <!--</div>-->
-                            </div>
-
-                            <div class="panel-footer">
-                                <a @click="onEdit">Edit</a> |
-                                <a @click="onDelete">Delete</a>
-                            </div>
+                    <div v-if="!editing">
+                        <div class="panel-body">
+                            <show-property-field
+                                    v-for="(value, key) in propertyAttributesOrder" :key="key"
+                                    v-if="ignoreFields.indexOf(key) < 0"
+                                    label_class="col-lg-4"
+                                    :label_text="key"
+                                    display_class="col-lg-8"
+                                    :display_text="value"
+                            ></show-property-field>
                         </div>
 
-                        <div v-if="editing">
-                            <div class="panel-body">
+                        <div class="panel-footer">
+                            <a @click="onEdit">Edit</a> |
+                            <a @click="onDelete">Delete</a>
+                        </div>
+                    </div>
+
+                    <div v-if="editing">
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label" for="street_address">Street Address</label>
+                                <div class="col-lg-8">
+                                    <input
+                                            type="text"
+                                            id="street_address"
+                                            class="form-control"
+                                            v-model="editValues.street_address"
+                                    >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label" for="city">City</label>
+                                <div class="col-lg-8">
+                                    <input
+                                            type="text"
+                                            id="city"
+                                            class="form-control"
+                                            v-model="editValues.city"
+                                    >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label" for="state_id">State</label>
+                                <div class="col-lg-8">
+                                    <select id="state_id" name="state_id" v-model="editValues.state_id" class="form-control">
+                                        <option value="">Choose a state...</option>
+                                        <option v-for="(item, index) in this.$store.state.statesList" :value="index">{{ item }}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label" for="zip">Zip</label>
+                                <div class="col-lg-8">
+                                    <input
+                                            type="text"
+                                            id="zip"
+                                            class="form-control"
+                                            v-model="editValues.zip"
+                                    >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label" for="bedrooms">Bedrooms</label>
+                                <div class="col-lg-8">
+                                    <input
+                                            type="text"
+                                            id="bedrooms"
+                                            class="form-control"
+                                            v-model="editValues.bedrooms"
+                                    >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label" for="bathrooms">Bathrooms</label>
+                                <div class="col-lg-8">
+                                    <input
+                                            type="text"
+                                            id="bathrooms"
+                                            class="form-control"
+                                            v-model="editValues.bathrooms"
+                                    >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label" for="garages">Garages</label>
+                                <div class="col-lg-8">
+                                    <input
+                                            type="text"
+                                            id="garages"
+                                            class="form-control"
+                                            v-model="editValues.garages"
+                                    >
+                                </div>
                                 <div class="form-group">
-                                    <label class="col-lg-4 control-label" for="street_address">Street Address</label>
+                                    <label class="col-lg-4 control-label" for="year_built">Year Built</label>
                                     <div class="col-lg-8">
                                         <input
                                                 type="text"
-                                                id="street_address"
+                                                id="year_built"
                                                 class="form-control"
-                                                v-model="editValues.street_address"
+                                                v-model="editValues.year_built"
                                         >
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-lg-4 control-label" for="city">City</label>
+                                    <label class="col-lg-4 control-label" for="living_square_footage">Living Square Footage</label>
                                     <div class="col-lg-8">
                                         <input
                                                 type="text"
-                                                id="city"
+                                                id="living_square_footage"
                                                 class="form-control"
-                                                v-model="editValues.city"
+                                                v-model="editValues.living_square_footage"
                                         >
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-lg-4 control-label" for="state_id">State</label>
-                                    <div class="col-lg-8">
-                                        <select id="state_id" name="state_id" v-model="editValues.state_id" class="form-control">
-                                            <option value="">Choose a state...</option>
-                                            <option v-for="(item, index) in this.$store.state.statesList" :value="index">{{ item }}</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-lg-4 control-label" for="zip">Zip</label>
+                                    <label class="col-lg-4 control-label" for="lot_square_footage">Lot Square Footage</label>
                                     <div class="col-lg-8">
                                         <input
                                                 type="text"
-                                                id="zip"
+                                                id="lot_square_footage"
                                                 class="form-control"
-                                                v-model="editValues.zip"
+                                                v-model="editValues.lot_square_footage"
                                         >
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-lg-4 control-label" for="bedrooms">Bedrooms</label>
+                                    <label class="col-lg-4 control-label" for="neighborhood">Neighborhood</label>
                                     <div class="col-lg-8">
                                         <input
                                                 type="text"
-                                                id="bedrooms"
+                                                id="neighborhood"
                                                 class="form-control"
-                                                v-model="editValues.bedrooms"
+                                                v-model="editValues.neighborhood"
                                         >
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-lg-4 control-label" for="bathrooms">Bathrooms</label>
-                                    <div class="col-lg-8">
-                                        <input
-                                                type="text"
-                                                id="bathrooms"
-                                                class="form-control"
-                                                v-model="editValues.bathrooms"
-                                        >
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-lg-4 control-label" for="garages">Garages</label>
-                                    <div class="col-lg-8">
-                                        <input
-                                                type="text"
-                                                id="garages"
-                                                class="form-control"
-                                                v-model="editValues.garages"
-                                        >
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-lg-4 control-label" for="year_built">Year Built</label>
-                                        <div class="col-lg-8">
-                                            <input
-                                                    type="text"
-                                                    id="year_built"
-                                                    class="form-control"
-                                                    v-model="editValues.year_built"
-                                            >
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-lg-4 control-label" for="living_square_footage">Living Square Footage</label>
-                                        <div class="col-lg-8">
-                                            <input
-                                                    type="text"
-                                                    id="living_square_footage"
-                                                    class="form-control"
-                                                    v-model="editValues.living_square_footage"
-                                            >
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-lg-4 control-label" for="lot_square_footage">Lot Square Footage</label>
-                                        <div class="col-lg-8">
-                                            <input
-                                                    type="text"
-                                                    id="lot_square_footage"
-                                                    class="form-control"
-                                                    v-model="editValues.lot_square_footage"
-                                            >
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-lg-4 control-label" for="neighborhood">Neighborhood</label>
-                                        <div class="col-lg-8">
-                                            <input
-                                                    type="text"
-                                                    id="neighborhood"
-                                                    class="form-control"
-                                                    v-model="editValues.neighborhood"
-                                            >
-                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="panel-footer">
-                                <a @click="onUpdate">Save</a> |
-                                <a @click="onCancel">Cancel</a>
-                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <a @click="onUpdate">Save</a> |
+                            <a @click="onCancel">Cancel</a>
                         </div>
                     </div>
                 </div>
