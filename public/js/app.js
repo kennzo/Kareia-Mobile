@@ -12234,6 +12234,7 @@ module.exports = Cancel;
 //
 //
 //
+//
 
 
 
@@ -12254,6 +12255,8 @@ module.exports = Cancel;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ListItem__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
+//
+//
 //
 //
 //
@@ -12406,9 +12409,16 @@ module.exports = Cancel;
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-    name: "exits"
+    name: "exits",
+    methods: {
+        onGetWholesaleExits: function onGetWholesaleExits() {
+            console.log("Get Wholesale Exits");
+        }
+    }
 });
 
 /***/ }),
@@ -12419,6 +12429,13 @@ module.exports = Cancel;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Location_Form_States__ = __webpack_require__(78);
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -44346,21 +44363,21 @@ var routes = [{
 },
 // Properties
 {
-    path: 'property/new',
-    name: 'new-property',
+    path: '/property/new',
+    name: 'newProperty',
     component: __WEBPACK_IMPORTED_MODULE_3__components_Properties_New_Property__["a" /* default */]
 }, {
-    path: 'property/show/:id',
+    path: '/property/show/:id',
     name: 'showProperty',
     component: __WEBPACK_IMPORTED_MODULE_4__components_Properties_Property__["a" /* default */]
 },
 // Wholesale Exits
 {
-    path: 'wholesale/new',
-    name: 'new-wholesale',
+    path: '/wholesale/new',
+    name: 'newWholesale',
     component: __WEBPACK_IMPORTED_MODULE_5__components_WholesaleExits_New_Wholesale__["a" /* default */]
 }, {
-    path: 'wholesale/show/:id',
+    path: '/wholesale/show/:id',
     name: 'showWholesale',
     component: __WEBPACK_IMPORTED_MODULE_6__components_WholesaleExits_Wholesale__["a" /* default */]
 }];
@@ -47094,7 +47111,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -47193,7 +47210,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -47385,31 +47402,35 @@ var render = function() {
       _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
         _c("div", { staticClass: "panel panel-default" }, [
           _c("div", { staticClass: "panel-heading" }, [
-            _c(
-              "div",
-              { staticClass: "row" },
-              [
-                _c("div", { staticClass: "panel-heading col-md-6" }, [
-                  _vm._v("Properties")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-primary col-md-2",
-                    on: { click: _vm.onGetProperties }
-                  },
-                  [_vm._v("Refresh")]
-                ),
-                _vm._v(" "),
-                _c("router-link", { attrs: { to: { name: "new-property" } } }, [
-                  _c("button", { staticClass: "btn btn-primary col-md-3" }, [
-                    _vm._v("New Property")
-                  ])
-                ])
-              ],
-              1
-            )
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-8" }, [_vm._v("Properties")]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-md-4" },
+                [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      on: { click: _vm.onGetProperties }
+                    },
+                    [_vm._v("Refresh")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    { attrs: { to: { name: "newProperty" } } },
+                    [
+                      _c("button", { staticClass: "btn btn-primary" }, [
+                        _vm._v("New Property")
+                      ])
+                    ]
+                  )
+                ],
+                1
+              )
+            ])
           ]),
           _vm._v(" "),
           _c(
@@ -47536,7 +47557,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -47552,30 +47573,51 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
-          _c("div", { staticClass: "panel panel-default" }, [
-            _c("div", { staticClass: "panel-heading" }, [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "panel-heading col-md-7" }, [
-                  _vm._v("Wholesale Exits")
-                ])
-              ])
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
+        _c("div", { staticClass: "panel panel-default" }, [
+          _c("div", { staticClass: "panel-heading" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-8" }, [
+                _vm._v("Wholesale Exits")
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-md-4" },
+                [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      on: { click: _vm.onGetWholesaleExits }
+                    },
+                    [_vm._v("Refresh")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    { attrs: { to: { name: "newWholesale" } } },
+                    [
+                      _c("button", { staticClass: "btn btn-primary" }, [
+                        _vm._v("New Exit")
+                      ])
+                    ]
+                  )
+                ],
+                1
+              )
             ])
-          ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "panel-body" })
         ])
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 if (false) {
@@ -47603,7 +47645,9 @@ var render = function() {
       _vm._v(" "),
       _c("hr"),
       _vm._v(" "),
-      _c("wholesale-exits")
+      _c("wholesale-exits"),
+      _vm._v(" "),
+      _c("hr")
     ],
     1
   )
@@ -47712,7 +47756,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -47970,7 +48014,22 @@ var render = function() {
       _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
         _c("div", { staticClass: "panel panel-default" }, [
           _c("div", { staticClass: "panel-heading" }, [
-            _vm._v("Enter Property Details")
+            _c(
+              "div",
+              { staticClass: "row" },
+              [
+                _c("div", { staticClass: "col-md-8" }, [
+                  _vm._v("Enter Property Details")
+                ]),
+                _vm._v(" "),
+                _c("router-link", { attrs: { to: "/home" } }, [
+                  _c("button", { staticClass: "btn btn-primary col-md-3" }, [
+                    _vm._v("Back")
+                  ])
+                ])
+              ],
+              1
+            )
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "panel-body" }, [

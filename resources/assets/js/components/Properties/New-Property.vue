@@ -3,7 +3,14 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Enter Property Details</div>
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-md-8">Enter Property Details</div>
+                            <router-link to="/home">
+                                <button class="btn btn-primary col-md-3">Back</button>
+                            </router-link>
+                        </div>
+                    </div>
 
                     <div class="panel-body">
                         <form @submit.prevent="onSubmitted">

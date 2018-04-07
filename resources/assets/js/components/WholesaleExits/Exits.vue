@@ -5,21 +5,23 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="row">
-                            <div class="panel-heading col-md-7">Wholesale Exits</div>
-                            <!--<button class="btn btn-primary col-md-2" @click="onGetProperties">Refresh</button>-->
-                            <!--<router-link to="/new-property">-->
-                                <!--<button class="btn btn-primary col-md-2">New Property</button>-->
-                            <!--</router-link>-->
+                            <div class="col-md-8">Wholesale Exits</div>
+                            <div class="col-md-4">
+                                <button class="btn btn-primary" @click="onGetWholesaleExits">Refresh</button>
+                                <router-link :to="{ name: 'newWholesale'}">
+                                    <button class="btn btn-primary">New Exit</button>
+                                </router-link>
+                            </div>
                         </div>
                     </div>
 
-                    <!--<div class="panel-body">-->
+                    <div class="panel-body">
                         <!--<list-item-->
                                 <!--v-for="(value, key) in properties" :key="key"-->
                                 <!--:property="value"-->
                                 <!--@propertyDeleted="onPropertyDeleted($event)">-->
                         <!--</list-item>-->
-                    <!--</div>-->
+                    </div>
                 </div>
             </div>
         </div>
@@ -28,7 +30,12 @@
 
 <script>
     export default {
-        name: "exits"
+        name: "exits",
+        methods: {
+            onGetWholesaleExits() {
+                console.log("Get Wholesale Exits");
+            }
+        }
     }
 </script>
 

@@ -23,23 +23,23 @@ const routes = [
     },
     // Properties
     {
-        path: 'property/new',
-        name: 'new-property',
+        path: '/property/new',
+        name: 'newProperty',
         component: NewProperty
     },
     {
-        path: 'property/show/:id',
+        path: '/property/show/:id',
         name: 'showProperty',
         component: Property
     },
     // Wholesale Exits
     {
-        path: 'wholesale/new',
-        name: 'new-wholesale',
+        path: '/wholesale/new',
+        name: 'newWholesale',
         component: NewWholesale
     },
     {
-        path: 'wholesale/show/:id',
+        path: '/wholesale/show/:id',
         name: 'showWholesale',
         component: Wholesale
     },

@@ -5,11 +5,13 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="row">
-                            <div class="panel-heading col-md-6">Properties</div>
-                            <button class="btn btn-primary col-md-2" @click="onGetProperties">Refresh</button>
-                            <router-link :to="{ name: 'new-property'}">
-                                <button class="btn btn-primary col-md-3">New Property</button>
-                            </router-link>
+                            <div class="col-md-8">Properties</div>
+                            <div class="col-md-4">
+                                <button class="btn btn-primary" @click="onGetProperties">Refresh</button>
+                                <router-link :to="{ name: 'newProperty'}">
+                                    <button class="btn btn-primary">New Property</button>
+                                </router-link>
+                            </div>
                         </div>
                     </div>
 

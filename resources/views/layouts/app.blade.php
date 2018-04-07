@@ -53,7 +53,7 @@
 
                                 <ul class="dropdown-menu">
                                     <li><router-link to="/home">Home</router-link></li>
-                                    <li><router-link to="/new-property">New Property</router-link></li>
+                                    <li><router-link :to="{ name: 'newProperty'}">New Property</router-link></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
