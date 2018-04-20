@@ -5,8 +5,9 @@ import axios from 'axios';
 Vue.use(Vuex);
 
 const state = {
-    properties: [],
     // todo: Try to get this from the API?
+    properties: [],
+    wholesaleExits: [],
     statesList: {
         "1": "Alabama",
         "2": "Alaska",

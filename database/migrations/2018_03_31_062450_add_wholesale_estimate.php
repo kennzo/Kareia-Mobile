@@ -22,9 +22,14 @@ class AddWholesaleEstimate extends Migration
             $table->foreign('property_id')
                   ->references('id')
                   ->on('properties');
+            $table->integer('how_quick_to_sell')->nullable();
             $table->float('arv');
+            $table->float('rent_arv')->nullable();
             $table->float('estimated_repairs');
             $table->float('assignment_fee');
+            $table->float('mortgage_amount')->nullable();
+            $table->float('monthly_payment')->nullable();
+            $table->float('asking_price');
             $table->string('deal_type')->nullable();
             $table->text('buyers')->nullable();
             $table->text('notes')->nullable();

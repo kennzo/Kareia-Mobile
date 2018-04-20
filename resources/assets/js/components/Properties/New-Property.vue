@@ -6,126 +6,152 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-8">Enter Property Details</div>
-                            <router-link to="/home">
-                                <button class="btn btn-primary col-md-3">Back</button>
-                            </router-link>
+                            <div class="col-md-4">
+                                <router-link to="/home">
+                                    <button class="btn btn-primary">Back</button>
+                                </router-link>
+                            </div>
                         </div>
                     </div>
 
                     <div class="panel-body">
                         <form @submit.prevent="onSubmitted">
                             <fieldset>
-                                <div :class="styleClasses.div_group">
-                                    <label :class="styleClasses._1_label" for="street_address">Street Address</label>
-                                    <div :class="styleClasses._2_div">
-                                        <input
-                                                type="text"
-                                                id="street_address"
-                                                :class="styleClasses._input"
-                                                v-model="fields.street_address">
+                                <div class="row">
+                                    <div :class="styleClasses.div_group">
+                                        <label :class="styleClasses._1_label" for="street_address">Street Address</label>
+                                        <div :class="styleClasses._2_div">
+                                            <input
+                                                    type="text"
+                                                    id="street_address"
+                                                    :class="styleClasses._input"
+                                                    v-model="fields.street_address">
+                                        </div>
                                     </div>
                                 </div>
-                                <div :class="styleClasses.div_group">
-                                    <label :class="styleClasses._1_label" for="city">City</label>
-                                    <div :class="styleClasses._2_div">
-                                        <input
-                                                type="text"
-                                                id="city"
-                                                :class="styleClasses._input"
-                                                v-model="fields.city">
+                                <div class="row">
+                                    <div :class="styleClasses.div_group">
+                                        <label :class="styleClasses._1_label" for="city">City</label>
+                                        <div :class="styleClasses._2_div">
+                                            <input
+                                                    type="text"
+                                                    id="city"
+                                                    :class="styleClasses._input"
+                                                    v-model="fields.city">
+                                        </div>
                                     </div>
                                 </div>
-                                <div :class="styleClasses.div_group">
-                                    <label :class="styleClasses._1_label" for="state_id">State</label>
-                                    <div :class="styleClasses._2_div">
-                                        <select id="state_id" name="state_id" v-model="fields.state_id" :class="styleClasses._input">
-                                            <option value="">Choose a state...</option>
-                                            <option v-for="(item, index) in this.$store.state.statesList" :value="index">{{ item }}</option>
-                                        </select>
+                                <div class="row">
+                                    <div :class="styleClasses.div_group">
+                                        <label :class="styleClasses._1_label" for="state_id">State</label>
+                                        <div :class="styleClasses._2_div">
+                                            <select id="state_id" name="state_id" v-model="fields.state_id" :class="styleClasses._input">
+                                                <option value="">Choose a state...</option>
+                                                <option v-for="(item, index) in this.$store.state.statesList" :value="index">{{ item }}</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
-                                <div :class="styleClasses.div_group">
-                                    <label :class="styleClasses._1_label" for="zip">Zip Code</label>
-                                    <div :class="styleClasses._2_div">
-                                        <input
-                                                type="text"
-                                                id="zip"
-                                                :class="styleClasses._input"
-                                                v-model="fields.zip">
+                                <div class="row">
+                                    <div :class="styleClasses.div_group">
+                                        <label :class="styleClasses._1_label" for="zip">Zip Code</label>
+                                        <div :class="styleClasses._2_div">
+                                            <input
+                                                    type="text"
+                                                    id="zip"
+                                                    :class="styleClasses._input"
+                                                    v-model="fields.zip">
+                                        </div>
                                     </div>
                                 </div>
-                                <div :class="styleClasses.div_group">
-                                    <label :class="styleClasses._1_label" for="bedrooms">Bedrooms</label>
-                                    <div :class="styleClasses._2_div">
-                                        <input
-                                                type="text"
-                                                id="bedrooms"
-                                                :class="styleClasses._input"
-                                                v-model="fields.bedrooms">
+                                <div class="row">
+                                    <div :class="styleClasses.div_group">
+                                        <label :class="styleClasses._1_label" for="bedrooms">Bedrooms</label>
+                                        <div :class="styleClasses._2_div">
+                                            <input
+                                                    type="text"
+                                                    id="bedrooms"
+                                                    :class="styleClasses._input"
+                                                    v-model="fields.bedrooms">
+                                        </div>
                                     </div>
                                 </div>
-                                <div :class="styleClasses.div_group">
-                                    <label :class="styleClasses._1_label" for="bathrooms">Bathrooms</label>
-                                    <div :class="styleClasses._2_div">
-                                        <input
-                                                type="text"
-                                                id="bathrooms"
-                                                :class="styleClasses._input"
-                                                v-model="fields.bathrooms">
+                                <div class="row">
+                                    <div :class="styleClasses.div_group">
+                                        <label :class="styleClasses._1_label" for="bathrooms">Bathrooms</label>
+                                        <div :class="styleClasses._2_div">
+                                            <input
+                                                    type="text"
+                                                    id="bathrooms"
+                                                    :class="styleClasses._input"
+                                                    v-model="fields.bathrooms">
+                                        </div>
                                     </div>
                                 </div>
-                                <div :class="styleClasses.div_group">
-                                    <label :class="styleClasses._1_label" for="garages">Garages</label>
-                                    <div :class="styleClasses._2_div">
-                                        <input
-                                                type="text"
-                                                id="garages"
-                                                :class="styleClasses._input"
-                                                v-model="fields.garages">
+                                <div class="row">
+                                    <div :class="styleClasses.div_group">
+                                        <label :class="styleClasses._1_label" for="garages">Garages</label>
+                                        <div :class="styleClasses._2_div">
+                                            <input
+                                                    type="text"
+                                                    id="garages"
+                                                    :class="styleClasses._input"
+                                                    v-model="fields.garages">
+                                        </div>
                                     </div>
                                 </div>
-                                <div :class="styleClasses.div_group">
-                                    <label :class="styleClasses._1_label" for="year_built">Year Built</label>
-                                    <div :class="styleClasses._2_div">
-                                        <input
-                                                type="text"
-                                                id="year_built"
-                                                :class="styleClasses._input"
-                                                v-model="fields.year_built">
+                                <div class="row">
+                                    <div :class="styleClasses.div_group">
+                                        <label :class="styleClasses._1_label" for="year_built">Year Built</label>
+                                        <div :class="styleClasses._2_div">
+                                            <input
+                                                    type="text"
+                                                    id="year_built"
+                                                    :class="styleClasses._input"
+                                                    v-model="fields.year_built">
+                                        </div>
                                     </div>
                                 </div>
-                                <div :class="styleClasses.div_group">
-                                    <label :class="styleClasses._1_label" for="living_square_footage">Living Square Footage</label>
-                                    <div :class="styleClasses._2_div">
-                                        <input
-                                                type="text"
-                                                id="living_square_footage"
-                                                :class="styleClasses._input"
-                                                v-model="fields.living_square_footage">
+                                <div class="row">
+                                    <div :class="styleClasses.div_group">
+                                        <label :class="styleClasses._1_label" for="living_square_footage">Living Square Footage</label>
+                                        <div :class="styleClasses._2_div">
+                                            <input
+                                                    type="text"
+                                                    id="living_square_footage"
+                                                    :class="styleClasses._input"
+                                                    v-model="fields.living_square_footage">
+                                        </div>
                                     </div>
                                 </div>
-                                <div :class="styleClasses.div_group">
-                                    <label :class="styleClasses._1_label" for="lot_square_footage">Lot Square Footage</label>
-                                    <div :class="styleClasses._2_div">
-                                        <input
-                                                type="text"
-                                                id="lot_square_footage"
-                                                :class="styleClasses._input"
-                                                v-model="fields.lot_square_footage">
+                                <div class="row">
+                                    <div :class="styleClasses.div_group">
+                                        <label :class="styleClasses._1_label" for="lot_square_footage">Lot Square Footage</label>
+                                        <div :class="styleClasses._2_div">
+                                            <input
+                                                    type="text"
+                                                    id="lot_square_footage"
+                                                    :class="styleClasses._input"
+                                                    v-model="fields.lot_square_footage">
+                                        </div>
                                     </div>
                                 </div>
-                                <div :class="styleClasses.div_group">
-                                    <label :class="styleClasses._1_label" for="neighborhood">Neighborhood</label>
-                                    <div :class="styleClasses._2_div">
-                                        <input
-                                                type="text"
-                                                id="neighborhood"
-                                                :class="styleClasses._input"
-                                                v-model="fields.neighborhood">
+                                <div class="row">
+                                    <div :class="styleClasses.div_group">
+                                        <label :class="styleClasses._1_label" for="neighborhood">Neighborhood</label>
+                                        <div :class="styleClasses._2_div">
+                                            <input
+                                                    type="text"
+                                                    id="neighborhood"
+                                                    :class="styleClasses._input"
+                                                    v-model="fields.neighborhood">
+                                        </div>
                                     </div>
                                 </div>
                             </fieldset>
-                            <button class="btn btn-primary" type="submit">Submit</button>
+                            <div class="panel-footer">
+                                <button class="btn btn-primary" type="submit">Submit</button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -196,5 +222,7 @@
 </script>
 
 <style scoped>
-
+    .row {
+        margin: 10px;
+    }
 </style>

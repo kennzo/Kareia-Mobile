@@ -16,11 +16,11 @@
                     </div>
 
                     <div class="panel-body">
-                        <list-item
+                        <property-list-item
                             v-for="(value, key) in properties" :key="key"
                             :property="value"
                             @propertyDeleted="onPropertyDeleted($event)">
-                        </list-item>
+                        </property-list-item>
                     </div>
                 </div>
             </div>
@@ -29,7 +29,7 @@
 </template>
 
 <script>
-    import listItem from './ListItem';
+    import propertyListItem from './ListItem';
     import axios from 'axios';
 
     export default {
@@ -62,7 +62,7 @@
             }
         },
         components: {
-            'listItem': listItem
+            'property-list-item': propertyListItem
         }
     }
 </script>
