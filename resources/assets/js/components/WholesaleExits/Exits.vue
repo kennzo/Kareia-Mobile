@@ -21,11 +21,6 @@
                                 :estimate="value"
                         >
                         </wholesale-list-item>
-                        <!--<list-item-->
-                                <!--v-for="(value, key) in properties" :key="key"-->
-                                <!--:property="value"-->
-                                <!--@propertyDeleted="onPropertyDeleted($event)">-->
-                        <!--</list-item>-->
                     </div>
                 </div>
             </div>
