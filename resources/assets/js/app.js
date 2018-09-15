@@ -12,7 +12,7 @@
 require('./bootstrap');
 
 import Vue from 'vue';
-import LoggedInMember from './components/LoggedInMember/Main';
+import Main from './components/LoggedInMember/Main';
 import router from './router';
 import store from './store';
 
@@ -20,7 +20,7 @@ import store from './store';
 
 // This javascript will be the main holder of global components for each SPA aspect.
 // At this point, there is only the dashboard.
-Vue.component('logged-in-member', LoggedInMember);
+Vue.component('logged-in-member', Main);
 
 const app = new Vue({
     el: '#app',
